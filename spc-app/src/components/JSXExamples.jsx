@@ -1,152 +1,133 @@
 import React from 'react';
+import UserCard from './UserCard';
+import TodoList from './TodoList';
+import TodoList2 from './TodoList2';
+import TodoList3 from './TodoList3';
+import TodoList4 from './TodoList4';
+import TodoList5 from './TodoList5';
+import TodoList6 from './TodoList6';
+import TodoList7 from './TodoList7';
 
 function JSXExamples() {
-    const greeting = <h1>Hello, React with JSX!</h1>;
-    
-    const name = 'ป๊อปสยาม';
-    const age = 50;
-    
-    const currentYear = new Date().getFullYear();
-    
-    const user = {
-        firstName: 'ศุภโชค',
-        lastName: 'หางนาค',
-        age: 20,
-        hobbies: ['เล่นเกม', 'ฟังเพลง', 'เขียนโค้ด']
-    };
-    
-    const formatName = (user) => {
-        return `${user.firstName} ${user.lastName}`;
-    };
-    
-    const isLoggedIn = true;
-    const hasNotification = 3;
-    
     return (
-        <div className="jsx-examples">
-            <h1>ตัวอย่างการใช้ JSX</h1>
+        <div style={{
+            maxWidth: '800px',
+            margin: '0 auto',
+            padding: '20px',
+            fontFamily: 'Arial, sans-serif'
+        }}>
+            <h1 style={{
+                fontSize: '80px',
+                textAlign: 'center',
+                color: '#ba368eff',
+                marginBottom: '40px'
+            }}>
+                My Profile
+            </h1>
             
-            {/* === 1. การแสดงผลข้อมูลพื้นฐาน === */}
-            <section>
-                <h2>📝 การแสดงผลข้อมูล</h2>
-                {greeting}
-                <p>สวัสดีจร้าาาคุณ {name} อายุ {age} ปี</p>
-                <p>ปีนี้คือปี {currentYear}</p>
-                <p>ชื่อเต็ม: {formatName(user)}</p>
+         
+            <section style={{
+                marginBottom: '40px',
+                padding: '20px',
+                border: '1px solid #000000ff',
+                borderRadius: '8px',
+                backgroundColor: '#ccf3eaff'
+            }}>
+                {/* <h2 style={{ color: '#333', marginBottom: '20px' }}>
+                    Component Composition
+                </h2> */}
+                <UserCard />
             </section>
             
-            <section>
-                <h2>🎨 Attributes ใน JSX</h2>
-                <div className="card">
-                    <p className="text-primary">ใช้ className แทน class</p>
-                </div>
-                
-                <button 
-                    onClick={() => alert('คลิกแล้ว!')}
-                    onMouseEnter={() => console.log('เมาส์เข้า')}
-                >
-                    Hover หรือ Click ดู
-                </button>
-                
-                <div style={{
-                    backgroundColor: '#E8F5E8',
-                    padding: '15px',
-                    borderRadius: '8px',
-                    marginTop: '10px'
-                }}>
-                    <p style={{ color: '#2D4A2B', fontWeight: 'bold' }}>
-                        Inline styles ใช้ object
-                    </p>
-                </div>
+            <section style={{
+                marginBottom: '40px',
+                padding: '20px',
+                border: '1px solid #ffee00ff',
+                borderRadius: '8px',
+                backgroundColor: '#fafafa'
+            }}>
+                <h2 style={{ color: '#808127ff', marginBottom: '20px' }}>
+                    Monday
+                </h2>
+                <TodoList />
             </section>
-            
-            <section>
-                <h2>🔀 Conditional Rendering</h2>
-                
-                <p>
-                    สถานะ: {isLoggedIn ? '✅ ล็อกอินแล้ว' : '❌ ยังไม่ได้ล็อกอิน'}
-                </p>
-                
-                {hasNotification > 0 && (
-                    <div className="notification">
-                        🔔 คุณมี {hasNotification} การแจ้งเตือนใหม่
-                    </div>
-                )}
-                
-                {(() => {
-                    if (user.age >= 18) {
-                        return <p>✅ {formatName(user)} เป็นผู้ใหญ่แล้ว</p>;
-                    } else {
-                        return <p>👶 {formatName(user)} ยังเป็นเด็ก</p>;
-                    }
-                })()}
+
+            <section style={{
+                marginBottom: '40px',
+                padding: '20px',
+                border: '1px solid #ba3692ff',
+                borderRadius: '8px',
+                backgroundColor: '#fafafa'
+            }}>
+                <h2 style={{ color: '#a0368eff', marginBottom: '20px' }}>
+                    Tuesday
+                </h2>
+                <TodoList2 />
             </section>
-            
-            <section>
-                <h2>📋 การแสดงผล Lists</h2>
-                <h3>งานอดิเรกของ {user.firstName}:</h3>
-                <ul>
-                    {user.hobbies.map((hobby, index) => (
-                        <li key={index}>
-                            {index + 1}. {hobby}
-                        </li>
-                    ))}
-                </ul>
-                
-                <div className="product-list">
-                    <h3>รายการสินค้า</h3>
-                    {[
-                        { id: 1, name: 'โน๊ตบุ๊ค', price: 25000, inStock: true },
-                        { id: 2, name: 'เมาส์', price: 590, inStock: true },
-                        { id: 3, name: 'คีย์บอร์ด', price: 1290, inStock: false }
-                    ].map(product => (
-                        <div key={product.id} className="product-item">
-                            <span>{product.name}</span>
-                            <span> - ฿{product.price.toLocaleString()}</span>
-                            <span className={product.inStock ? 'in-stock' : 'out-stock'}>
-                                {product.inStock ? ' ✅ มีสินค้า' : ' ❌ สินค้าหมด'}
-                            </span>
-                        </div>
-                    ))}
-                </div>
+
+            <section style={{
+                marginBottom: '40px',
+                padding: '20px',
+                border: '1px solid #36BA3D',
+                borderRadius: '8px',
+                backgroundColor: '#fafafa'
+            }}>
+                <h2 style={{ color: '#36BA3D', marginBottom: '20px' }}>
+                    Wednesday
+                </h2>
+                <TodoList3 />
             </section>
-            
-            <section>
-                <h2>🧩 React Fragment</h2>
-                <p>ใช้เมื่อไม่ต้องการ wrapper element:</p>
-                <React.Fragment>
-                    <h3>หัวข้อ</h3>
-                    <p>เนื้อหา</p>
-                </React.Fragment>
-                
-                <>
-                    <h3>หัวข้ออื่น</h3>
-                    <p>เนื้อหาอื่น</p>
-                </>
+
+            <section style={{
+                marginBottom: '40px',
+                padding: '20px',
+                border: '1px solid #c28b14ff',
+                borderRadius: '8px',
+                backgroundColor: '#fafafa'
+            }}>
+                <h2 style={{ color: '#b68620ff', marginBottom: '20px' }}>
+                    Thursday
+                </h2>
+                <TodoList4 />
             </section>
-            
-            <section>
-                <h2>🎯 Event Handling ใน JSX</h2>
-                <input 
-                    type="text" 
-                    placeholder="พิมพ์อะไรก็ได้..."
-                    onChange={(e) => console.log('พิมพ์:', e.target.value)}
-                />
-                
-                <select onChange={(e) => alert(`เลือก: ${e.target.value}`)}>
-                    <option value="">-- เลือกภาษา --</option>
-                    <option value="js">JavaScript</option>
-                    <option value="py">Python</option>
-                    <option value="java">Java</option>
-                    <option value="go">Go</option>
-                </select>
+
+            <section style={{
+                marginBottom: '40px',
+                padding: '20px',
+                border: '1px solid #36aabaff',
+                borderRadius: '8px',
+                backgroundColor: '#fafafa'
+            }}>
+                <h2 style={{ color: '#40c4e6ff', marginBottom: '20px' }}>
+                    Friday
+                </h2>
+                <TodoList5 />
             </section>
-            
-            <section>
-                <h2>💬 Comments ใน JSX</h2>
-                <p>Comment ใน JSX ต้องอยู่ใน {/* curly braces */}</p>
-                {
-                }
+
+            <section style={{
+                marginBottom: '40px',
+                padding: '20px',
+                border: '1px solid #9436baff',
+                borderRadius: '8px',
+                backgroundColor: '#fafafa'
+            }}>
+                <h2 style={{ color: '#9436baff', marginBottom: '20px' }}>
+                    Saturday
+                </h2>
+                <TodoList6 />
+            </section>
+
+            <section style={{
+                marginBottom: '40px',
+                padding: '20px',
+                border: '1px solid #ba3636ff',
+                borderRadius: '8px',
+                backgroundColor: '#fafafa'
+            }}>
+                <h2 style={{ color: '#ba3636ff', marginBottom: '20px' }}>
+                    Sunday
+                </h2>
+                <TodoList7 />
             </section>
         </div>
     );

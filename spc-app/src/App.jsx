@@ -1,17 +1,13 @@
-import logo from './logo.svg';
-import './App.css';
-import Hello from './Hello';
-import GoodBye from './GoodBye';
+import React from 'react';
 import JSXExamples from './components/JSXExamples';
+import './App.css';
 
 function App() {
   return (
-    <div className="App">
-      <Hello />
-      <JSXExamples />
-      <GoodBye />
-    </div>
+      <div className="App">
+          <JSXExamples />
+      </div>
   );
 }
 
-export default App;
+  export default App;
